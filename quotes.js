@@ -20,9 +20,25 @@ const arrayOfQuotes = [
     },
 ];
 
+let prev = 0;
+let NewNum;
+
 function generateQuote(){
-    const random = Number.parseInt(Math.random()*arrayOfQuotes.length + 1);
-    document.querySelector('#quoteOutput').textContent = `\"${arrayOfQuotes[random].quote}\"`;
-    document.querySelector('#authorOutput').textContent = `--${arrayOfQuotes[random].author}`;
+    NewNum = Number.parseInt(Math.random()*arrayOfQuotes.length + 1);
+    console.log("ran again")
+    if((NewNum >=arrayOfQuotes.length)|| (prev == NewNum)){
+       prev = NewNum;
+       console.log('same',prev,NewNum)
+       generateQuote();
+       
+    } else {
+        console.log('success',prev,NewNum)
+        prev = NewNum;
+        document.querySelector('#quoteOutput').textContent = arrayOfQuotes[NewNum].quote;
+        document.querySelector('#authorOutput').textContent = arrayOfQuotes[NewNum].author;
+        // console.log("success")
+        
+
+    }
     
 }
