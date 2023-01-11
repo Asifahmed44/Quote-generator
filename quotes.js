@@ -25,10 +25,10 @@ let NewNum;
 
 function generateQuote(){
     NewNum = Number.parseInt(Math.random()*arrayOfQuotes.length + 1);
-    console.log("ran again")
+    // console.log("ran again")
     if((NewNum >=arrayOfQuotes.length)|| (prev == NewNum)){
        prev = NewNum;
-       console.log('same',prev,NewNum)
+    //    console.log('same',prev,NewNum)
        generateQuote();
        
     } else {
